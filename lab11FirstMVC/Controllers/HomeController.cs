@@ -25,11 +25,12 @@ namespace lab11FirstMVC.Controllers
         [HttpGet]
         public IActionResult Results(int begYear, int endYear)
         {
+
             //do what we want with the numbers
             //example
             //TimePerson tempPerson = new TimePerson();
             //return View(classname.methods(begYear, endYear year));
-            //ie return View(TimePerson.GetPerson(begYear,endYear)
+            return View(TimePerson.GetPersons(begYear, endYear));
         }
     }
 }
