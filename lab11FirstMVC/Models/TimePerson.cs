@@ -22,45 +22,46 @@ namespace lab11FirstMVC.Models
         {
 
             //read in file
-            //using (StreamReader reader = new StreamReader(~/ personOfTheYear.csv)) ;
-            //{
-            //}
-            //gregory said ok to do this for now but shouldn't hard code info
-            //from gwen's thing on slack but doesn't work for me, it breaks thh following then: 
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../wwwroot/personOfTheYear.csv");
             string[] linesFromFile = File.ReadAllLines(path);
             //verified have array of data, they are arrays of arrays/
             var csv = from line in linesFromFile select line.Split(',').ToArray();
-            
+            //to make it an array of just the results
             var csvStringArray = csv.ToArray();
-            //var csvStringArrayArray = csvStringArray.ToArray();
+
+            //assign information to objects
             List<TimePerson> person = new List<TimePerson>();
-            //have to use double for loop, also note to start the outside loop at 1 because 0 is the heading information
             for (int i = 1; i < csvStringArray.Length; i++)
             {
-                //for (int j = 0; j < csvStringArray[0].Length; j++)
-                //{
-                    TimePerson tp = new TimePerson();
-                    tp.Year = Convert.ToInt32(csvStringArray[i][i+1]);
-                    tp.Honor = item[2];
-                    tp.Name = item[3];
-                    tp.Country = item[4];
-                    tp.BirthYear = Convert.ToInt32(item[5]);
-                    tp.DeathYear = Convert.ToInt32(item[6]);
-                    tp.Title = item[7];
-                    tp.Category = item[8];
-                    tp.Context = item[9];
-
-                //}
-            }
+                TimePerson tp = new TimePerson();
+                tp.Year = Convert.ToInt32(csvStringArray[i][0]);
+                tp.Honor = csvStringArray[i][1];
+                tp.Name = csvStringArray[i][2];
+                tp.Country = csvStringArray[i][3];
+                if (csvStringArray[i][4] == "")
+                {
+                    tp.BirthYear = 0;
+                }
+                else
+                {
+                    tp.BirthYear = Convert.ToInt32(csvStringArray[i][4]);
+                }
+                if (csvStringArray[i][5] == "")
+                {
+                    tp.DeathYear = 0;
+                }
+                else
+                {
+                    tp.DeathYear = Convert.ToInt32(csvStringArray[i][5]);
+                }
+                tp.Title = csvStringArray[i][6];
+                tp.Category = csvStringArray[i][7];
+                tp.Context = csvStringArray[i][8];
                 person.Add(tp);
             }
-            return null;
-            //linesFromFile.SetDelimiters(new string[] { "," });
+            return person;
 
             //hints: 
-            //file.readalllines in an array
-            //iterate through array and set values to the new TimePerson object
             //reminder csv is seperated by a comma
             //populate list with all the peoples of the csv
             //then linq as needed (amanda suggests with lambda
