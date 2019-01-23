@@ -23,21 +23,21 @@ namespace lab11FirstMVC
         {
             app.UseMvc(routes =>
             { 
-           routes.MapRoute(
-               name: "default",
-               template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                name: "default",
+                template: "{controller=Home}/{action=Index}/{id?}");
             });
             app.UseStaticFiles();
-            //I think she said we don't need these...
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello World!");
+            });
         }
     }
 }
