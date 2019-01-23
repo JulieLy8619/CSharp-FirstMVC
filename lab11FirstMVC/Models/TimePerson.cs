@@ -30,7 +30,7 @@ namespace lab11FirstMVC.Models
             var csvStringArray = csv.ToArray();
 
             //assign information to objects
-            List<TimePerson> person = new List<TimePerson>();
+            List<TimePerson> listOfPeople = new List<TimePerson>();
             for (int i = 1; i < csvStringArray.Length; i++)
             {
                 TimePerson tp = new TimePerson();
@@ -57,16 +57,13 @@ namespace lab11FirstMVC.Models
                 tp.Title = csvStringArray[i][6];
                 tp.Category = csvStringArray[i][7];
                 tp.Context = csvStringArray[i][8];
-                person.Add(tp);
+                listOfPeople.Add(tp);
             }
-            return person;
+            return listOfPeople;
 
             //hints: 
-            //reminder csv is seperated by a comma
-            //populate list with all the peoples of the csv
             //then linq as needed (amanda suggests with lambda
             //list<timepersons> listofpeople = people.where (p => p.year >= begyear and p.year <= end year)).tolist();
-            //return listofpeople
             //can fill in blank space with 0, and then if it says 0 to put in N/A
             //example
             //list<timeperson> person = new list<timeperson>();

@@ -1,4 +1,4 @@
-﻿@*@model List<MVCBreakout.Models.TimePerson>*@
+﻿@model List<lab11FirstMVC.Models.TimePerson>
 
 <!DOCTYPE html>
 <html>
@@ -8,8 +8,9 @@
 </head>
 <body>
     <h1>Testing Results Page</h1>
-    <p>
-        
-    </p>
+    @foreach (var person in Model)
+    {
+        <p>@person.Name</p>
+    }
 </body>
 </html>
