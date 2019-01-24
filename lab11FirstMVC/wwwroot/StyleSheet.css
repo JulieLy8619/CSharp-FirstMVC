@@ -1,0 +1,58 @@
+﻿body 
+{
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: crimson;
+    border: 3px solid black;
+    padding: 25px;
+}
+
+div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 85px;
+    background-color: burlywood;
+    border-style: double;
+    border-radius: 8px;
+    text-align: center;
+}
+
+table 
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: 3px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: burlywood;
+}
+td 
+{
+    border: 1px solid black;
+}
+
+form {
+    width: 80%;
+    height: 70px;
+    padding-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: burlywood;
+    text-align: center;
+    border: 1px double black;
+}
+h1
+{
+    position: relative;
+    z-index: 2;
+}
+p {
+    margin: 0px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+}

@@ -1,0 +1,41 @@
+﻿@model List<lab11FirstMVC.Models.TimePerson>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MVC Lab</title>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>People of the Year Result</h1>
+    </div>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Honor</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Country</th>
+            <th>Birth Year</th>
+            <th>Death Year</th>
+            <th>Context</th>
+        </tr>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.Year</td>
+                <td>@person.Honor</td>
+                <td>@person.Category</td>
+                <td>@person.Name</td>
+                <td>@person.Title</td>
+                <td>@person.Country</td>
+                <td>@person.BirthYear</td>
+                <td>@person.DeathYear</td>
+                <td>@person.Context</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
