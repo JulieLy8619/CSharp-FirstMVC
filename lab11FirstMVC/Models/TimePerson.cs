@@ -30,7 +30,7 @@ namespace lab11FirstMVC.Models
             var csvStringArray = csv.ToArray();
 
             //assign information to objects
-            List<TimePerson> listOfPeople = new List<TimePerson>();
+            List<TimePerson> allPeople = new List<TimePerson>();
             for (int i = 1; i < csvStringArray.Length; i++)
             {
                 TimePerson tp = new TimePerson();
@@ -57,18 +57,22 @@ namespace lab11FirstMVC.Models
                 tp.Title = csvStringArray[i][6];
                 tp.Category = csvStringArray[i][7];
                 tp.Context = csvStringArray[i][8];
-                listOfPeople.Add(tp);
+                allPeople.Add(tp);
             }
-            return listOfPeople;
+            if ((begYear < 1927) || (endYear > 2016)) //because we didn't have data before and after those
+            {
+                return null;
+            }
+            else
+            {
 
-            //hints: 
-            //then linq as needed (amanda suggests with lambda
-            //list<timepersons> listofpeople = people.where (p => p.year >= begyear and p.year <= end year)).tolist();
-            //can fill in blank space with 0, and then if it says 0 to put in N/A
-            //example
-            //list<timeperson> person = new list<timeperson>();
-            //person.add(); //add is built into list
-
+                var listOfPeople =
+                    from peeps in allPeople
+                    where ((peeps.Year >= begYear) && (peeps.Year <= endYear))
+                    select peeps;
+                List<TimePerson> returnPeopleList = listOfPeople.ToList();
+                return returnPeopleList;
+            }
         }
     }
 }
