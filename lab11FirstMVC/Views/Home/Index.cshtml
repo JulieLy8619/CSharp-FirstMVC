@@ -5,13 +5,18 @@
     <link href="~/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Testing Home Page</h1>
+    <div>
+        <h1>Find the People of the Year</h1>
+    </div>
     <form method="post">
+        <p>
+            Pick a year range from 1927 to 2016: 
+        </p>
         <label name="begYear">Begining Year</label>
-        <input name="begYear" type="number" />
+        <input name="begYear" type="number" min="1927" />
 
         <label name="endYear">Ending Year</label>
-        <input name="endYear" type="number" />
+        <input name="endYear" type="number" max="2016"/>
 
         <button type="submit"> Submit </button>
 
