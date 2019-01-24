@@ -18,7 +18,6 @@ namespace lab11FirstMVC.Controllers
         [HttpPost]
         public IActionResult Index(int begYear, int endYear)
         {
-            //return View();
             return RedirectToAction("Results", new { begYear, endYear });
         }
 
