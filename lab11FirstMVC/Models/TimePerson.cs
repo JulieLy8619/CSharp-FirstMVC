@@ -59,20 +59,20 @@ namespace lab11FirstMVC.Models
                 tp.Context = csvStringArray[i][8];
                 allPeople.Add(tp);
             }
-            if ((begYear < 1927) || (endYear > 2016)) //because we didn't have data before and after those
-            {
-                return null;
-            }
-            else
-            {
-
-                var listOfPeople =
-                    from peeps in allPeople
-                    where ((peeps.Year >= begYear) && (peeps.Year <= endYear))
-                    select peeps;
-                List<TimePerson> returnPeopleList = listOfPeople.ToList();
-                return returnPeopleList;
-            }
+            //if ((begYear < 1927) || (endYear > 2016)) //because we didn't have data before and after those
+            //{
+            //    return null;
+            //}
+            //else
+            //{
+            //will just return no data if it is out of range. I can't provide a message if they are out of range
+            var listOfPeople =
+                from peeps in allPeople
+                where ((peeps.Year >= begYear) && (peeps.Year <= endYear))
+                select peeps;
+            List<TimePerson> returnPeopleList = listOfPeople.ToList();
+            return returnPeopleList;
+            //}
         }
     }
 }
