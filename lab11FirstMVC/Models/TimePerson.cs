@@ -18,6 +18,12 @@ namespace lab11FirstMVC.Models
         public string Category { get; set; }
         public string Context { get; set; }
 
+        /// <summary>
+        /// This method will read in a file, parse it and put them into their class properties then "filters" the list to return based on the year parameters
+        /// </summary>
+        /// <param name="begYear">start year user would like to know the people of the year</param>
+        /// <param name="endYear">end year user would like to know of the people of the year</param>
+        /// <returns>returns a List of TimePerson objects based on the time params</returns>
         public static List<TimePerson> GetPersons(int begYear, int endYear)
         {
 
